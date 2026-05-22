@@ -1,0 +1,16 @@
+import logging
+
+
+def configure_logging() -> None:
+    """Configure root logger for the application."""
+    logging.basicConfig(
+        level=logging.INFO,
+        format="%(asctime)s %(levelname)s %(name)s %(message)s",
+        datefmt="%Y-%m-%d %H:%M:%S",
+    )
+
+
+def get_logger(name: str) -> logging.Logger:
+    """Return a logger instance for the given module name."""
+    configure_logging()
+    return logging.getLogger(name)
